@@ -71,6 +71,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         fieldNode = node
         
         sceneView.scene.rootNode.addChildNode(node)
+        
+        let jumperJackNode = LumberJack.node()
+        node.addChildNode(jumperJackNode)
     }
 
     // MARK: - ARSCNViewDelegate

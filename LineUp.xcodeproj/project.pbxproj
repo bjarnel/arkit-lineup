@@ -16,6 +16,7 @@
 		06476FD82065174200326669 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 06476FD72065174200326669 /* art.scnassets */; };
 		06748870206517FA007D1CDC /* FieldNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0674886F206517FA007D1CDC /* FieldNode.swift */; };
 		06F9331620651F0700EADD3B /* Angles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F9331520651F0700EADD3B /* Angles.swift */; };
+		06F9331D2065243500EADD3B /* LumberJack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F9331C2065243500EADD3B /* LumberJack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		06F9331520651F0700EADD3B /* Angles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Angles.swift; sourceTree = "<group>"; };
 		06F9331720651F8800EADD3B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		06F9331920651FA800EADD3B /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		06F9331C2065243500EADD3B /* LumberJack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LumberJack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		06476FC120650AD100326669 /* LineUp */ = {
 			isa = PBXGroup;
 			children = (
+				06F9331B2065236200EADD3B /* Models */,
 				06F9331420651EFB00EADD3B /* Extensions */,
 				0674886E206517DD007D1CDC /* Planes */,
 				06476FD4206516EF00326669 /* Flat */,
@@ -102,6 +105,14 @@
 				06F9331520651F0700EADD3B /* Angles.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		06F9331B2065236200EADD3B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				06F9331C2065243500EADD3B /* LumberJack.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06748870206517FA007D1CDC /* FieldNode.swift in Sources */,
+				06F9331D2065243500EADD3B /* LumberJack.swift in Sources */,
 				06476FD6206516FB00326669 /* HUD.swift in Sources */,
 				06476FC520650AD100326669 /* ViewController.swift in Sources */,
 				06476FC320650AD100326669 /* AppDelegate.swift in Sources */,

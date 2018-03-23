@@ -29,8 +29,11 @@ final class FieldNode{
         let plane = SCNPlane(width: CGFloat(width),
                              height: CGFloat(height))
         plane.firstMaterial = material()
-        let node = SCNNode(geometry: plane)
-        node.eulerAngles = SCNVector3(-90.0.degreesToRadians, 0, 0)
+        let innerNode = SCNNode(geometry: plane)
+        innerNode.eulerAngles = SCNVector3(-90.0.degreesToRadians, 0, 0)
+        
+        let node = SCNNode()
+        node.addChildNode(innerNode)
 
         return node
     }
