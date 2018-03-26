@@ -12,5 +12,6 @@ struct Team {
     let name:String
     let shirtColor:UIColor
     let pantsColors:UIColor
+    let numberColor:UIColor
     let players:[Player]
 }

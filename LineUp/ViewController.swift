@@ -173,6 +173,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 material.diffuse.contents = LumberJackColorizer.shared.material(forShirtColor: team.shirtColor,
                                                                                 pantsColor: team.pantsColors,
                                                                                 playerNumber: player.number)
+                //material.diffuse.contents = LumberJackColorizer.shared.numberMaterial(playerNumber: player.number,
+                  //                                                                     color: UIColor.yellow)
+                
+                // yeah yeah this approach to printing a number on the back of the players is fubar. in essense
+                // we should have a model with different materials for shirt, pants etc., and only modify the parts
+                // that we need. Multiply is kinda stupid here..
+                material.multiply.contents = LumberJackColorizer.shared.numberMaterial(playerNumber: player.number,
+                                                                                      color: team.numberColor)
+                //material.locksAmbientWithDiffuse = true
                 jumperJackNode.childNodes.first?.geometry?.firstMaterial = material
                 
                 fieldNode.addChildNode(jumperJackNode)

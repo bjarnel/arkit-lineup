@@ -14,6 +14,7 @@ class Test {
         name: "Danmark",
         shirtColor: UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0),
         pantsColors: UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
+        numberColor: UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0), // multiply -> should become BLACK text
         players: [
             Player(name: "Peter Schmeichel",
                    position: .keeper,
@@ -65,6 +66,7 @@ class Test {
         name: "Tyskland",
         shirtColor: UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
         pantsColors: UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0),
+        numberColor: UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0), // multiply -> should become BLACK text
         players: [
             Player(name: "Bodo Illgner",
                    position: .keeper,
