@@ -16,7 +16,7 @@ final class FieldNode{
     static let textureInset = CGSize(width: 98.0,    //padding in texture behind goals
                                      height: 93.0)   // padding in texture on the sides of the field
     static let lengthOfField = 100.0    // meters scale
-    static let scale = 0.01 // == 1 meter = 100 meter
+    static let scale = 0.02/*0.01*/ // == 1 meter = 100 meter
     static let nodeSize = CGSize(width: lengthOfField * scale * Double((textureSize.width - textureInset.width * 2.0) / textureSize.width),
                                  height: ((Double(textureSize.height - textureInset.height * 2.0) * lengthOfField) / Double(textureSize.width - textureInset.width * 2.0)) * scale)
     static let nodeSizeIncludingPadding = CGSize(width: lengthOfField * scale,

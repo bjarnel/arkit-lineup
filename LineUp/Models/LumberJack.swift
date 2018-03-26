@@ -11,10 +11,10 @@ import SceneKit
 
 final class LumberJack {
     private static var _referenceNode:SCNNode?
-    static let height = 1.86
-    // 0.351 w
-    // 1.808 d
-    static let scale = 0.05 // not to scale! scale would be 0.01
+    static let height = 1.86        // height of character
+    static let thickness = 0.351    // front to back
+    static let width = 1.808        // hand to hand (yes its wide, because of the stupid posture!)
+    static let scale = 0.1/*0.05*/ // not to scale! scale would be 0.01
     
     class func node() -> SCNNode {
         if _referenceNode == nil {
