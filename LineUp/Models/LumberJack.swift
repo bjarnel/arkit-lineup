@@ -26,6 +26,10 @@ final class LumberJack {
         }
         
         let innerNode = _referenceNode!.clone()
+        // we need to copy the geomatry over as well, in order to enable distinct materials. yeah it makes it less
+        // performant. It should use the same vertices.. I hope
+        // https://forums.developer.apple.com/thread/47588
+        innerNode.geometry = _referenceNode!.geometry!.copy() as? SCNGeometry
         
         
         let node = SCNNode()

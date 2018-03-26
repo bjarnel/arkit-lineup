@@ -169,7 +169,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 nodeToPlayer[playerNodeId] = (team: team,
                                               player: player)
                 
-                //TODO: colorize model!
+                let material = SCNMaterial()
+                material.diffuse.contents = LumberJackColorizer.shared.material(forShirtColor: team.shirtColor,
+                                                                                pantsColor: team.pantsColors)
+                jumperJackNode.childNodes.first?.geometry?.firstMaterial = material
                 
                 fieldNode.addChildNode(jumperJackNode)
             }

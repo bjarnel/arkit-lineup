@@ -12,8 +12,8 @@ class Test {
     // https://en.wikipedia.org/wiki/UEFA_Euro_1992_Final
     static var denmark:Team = Team(
         name: "Danmark",
-        shirtColor: UIColor.red,
-        pantsColors: UIColor.white,
+        shirtColor: UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0),
+        pantsColors: UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
         players: [
             Player(name: "Peter Schmeichel",
                    position: .keeper,
@@ -63,8 +63,8 @@ class Test {
     )
     static var germany:Team = Team(
         name: "Tyskland",
-        shirtColor: UIColor.white,
-        pantsColors: UIColor.black,
+        shirtColor: UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
+        pantsColors: UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0),
         players: [
             Player(name: "Bodo Illgner",
                    position: .keeper,
