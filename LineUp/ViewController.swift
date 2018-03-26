@@ -171,7 +171,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 
                 let material = SCNMaterial()
                 material.diffuse.contents = LumberJackColorizer.shared.material(forShirtColor: team.shirtColor,
-                                                                                pantsColor: team.pantsColors)
+                                                                                pantsColor: team.pantsColors,
+                                                                                playerNumber: player.number)
                 jumperJackNode.childNodes.first?.geometry?.firstMaterial = material
                 
                 fieldNode.addChildNode(jumperJackNode)

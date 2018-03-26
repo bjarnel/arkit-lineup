@@ -62,13 +62,14 @@ class LumberJackColorizer {
     // we make this a singleton, because we want to cache materials..
     static let shared = LumberJackColorizer()
     private let baseImage = UIImage(named: "art.scnassets/LumberJack/lumberJack_diffuse_flat.png")!
-    private var materials = [(shirt:UIColor, pants:UIColor, image:UIImage)]()
+   // private var materials = [(shirt:UIColor, pants:UIColor, image:UIImage)]()
     
     static let shirtReplaceColor = UIColor(red:0.00, green:1.00, blue:1.00, alpha:1.0)// 00FFFF
     static let pantsReplaceColor = UIColor(red:1.00, green:1.0, blue:0.0, alpha:1.0)// FFFF00
     
     func material(forShirtColor shirtColor:UIColor,
-                  pantsColor:UIColor) -> UIImage? {
+                  pantsColor:UIColor,
+                  playerNumber:Int?) -> UIImage? {
         
         // return cached material
       //  if let material = materials.filter({ $0.shirt == shirtColor && $0.pants == pantsColor}).first {
@@ -76,22 +77,33 @@ class LumberJackColorizer {
        // }
         
         // yeah yeah, should support more stuff in the replace func(!!) it should only be ONE operation to modify image!
-        guard let newMat = replace(color: LumberJackColorizer.shirtReplaceColor,
+     /*   guard let newMat = replace(color: LumberJackColorizer.shirtReplaceColor,
                                    withColor: shirtColor,
                                    in: baseImage),
               let newMat2 = replace(color: LumberJackColorizer.pantsReplaceColor,
                                     withColor: pantsColor,
                                     in: newMat) else { return nil }
-        materials.append((shirt: shirtColor,
-                          pants: pantsColor,
-                          image: newMat2))
+       */
+       // materials.append((shirt: shirtColor,
+        //                  pants: pantsColor,
+          //                image: newMat2))
         
-        return newMat2
+        // number position: 739x583
+        
+        guard let newMat = replace(shirtColor: shirtColor,
+                                   pantsColor: pantsColor,
+                                   playerNumber: playerNumber,
+                                   in: baseImage) else { return nil }
+        
+        return newMat
     }
     
     // taken from https://stackoverflow.com/questions/7171679/replace-a-particular-color-inside-an-image-with-another-color
     // without much condiration :)
-    private func replace(color: UIColor, withColor replacingColor: UIColor, in image:UIImage) -> UIImage? {
+    private func replace(shirtColor shirtColorIn: UIColor,
+                         pantsColor pantsColorIn: UIColor,
+                         playerNumber:Int?,
+                         in image:UIImage) -> UIImage? {
         guard let inputCGImage = image.cgImage else { return nil }
         
         let colorSpace       = CGColorSpaceCreateDeviceRGB()
@@ -120,13 +132,18 @@ class LumberJackColorizer {
         
         let pixelBuffer = buffer.bindMemory(to: RGBA32.self, capacity: width * height)
         
-        let inColor = RGBA32(color: color)
-        let outColor = RGBA32(color: replacingColor)
+        let shirtColorSearch = RGBA32(color: LumberJackColorizer.shirtReplaceColor)
+        let shirtColor = RGBA32(color: shirtColorIn)
+        let pantsColorSearch = RGBA32(color: LumberJackColorizer.pantsReplaceColor)
+        let pantsColor = RGBA32(color: pantsColorIn)
         for row in 0 ..< Int(height) {
             for column in 0 ..< Int(width) {
                 let offset = row * width + column
-                if pixelBuffer[offset] == inColor {
-                    pixelBuffer[offset] = outColor
+                if pixelBuffer[offset] == shirtColorSearch {
+                    pixelBuffer[offset] = shirtColor
+                }
+                if pixelBuffer[offset] == pantsColorSearch {
+                    pixelBuffer[offset] = pantsColor
                 }
             }
         }
