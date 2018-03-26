@@ -19,6 +19,8 @@
 		067A4B122068CE9000CCD62F /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067A4B112068CE9000CCD62F /* Player.swift */; };
 		067A4B142068D12200CCD62F /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067A4B132068D12200CCD62F /* Test.swift */; };
 		067A4B162068D15B00CCD62F /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067A4B152068D15B00CCD62F /* Team.swift */; };
+		067A4B182069035700CCD62F /* LumberJackColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067A4B172069035700CCD62F /* LumberJackColorizer.swift */; };
+		067A4B1A206903A500CCD62F /* BillboardUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067A4B19206903A500CCD62F /* BillboardUtil.swift */; };
 		06F9331620651F0700EADD3B /* Angles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F9331520651F0700EADD3B /* Angles.swift */; };
 		06F9331D2065243500EADD3B /* LumberJack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F9331C2065243500EADD3B /* LumberJack.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +40,8 @@
 		067A4B112068CE9000CCD62F /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		067A4B132068D12200CCD62F /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		067A4B152068D15B00CCD62F /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		067A4B172069035700CCD62F /* LumberJackColorizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LumberJackColorizer.swift; sourceTree = "<group>"; };
+		067A4B19206903A500CCD62F /* BillboardUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillboardUtil.swift; sourceTree = "<group>"; };
 		06F9331520651F0700EADD3B /* Angles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Angles.swift; sourceTree = "<group>"; };
 		06F9331720651F8800EADD3B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		06F9331920651FA800EADD3B /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				06476FD5206516FB00326669 /* HUD.swift */,
+				067A4B19206903A500CCD62F /* BillboardUtil.swift */,
 			);
 			path = Flat;
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				06F9331C2065243500EADD3B /* LumberJack.swift */,
+				067A4B172069035700CCD62F /* LumberJackColorizer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -211,6 +217,7 @@
 				067A4B102068CE3A00CCD62F /* Position.swift in Sources */,
 				06748870206517FA007D1CDC /* FieldNode.swift in Sources */,
 				067A4B142068D12200CCD62F /* Test.swift in Sources */,
+				067A4B182069035700CCD62F /* LumberJackColorizer.swift in Sources */,
 				06F9331D2065243500EADD3B /* LumberJack.swift in Sources */,
 				06476FD6206516FB00326669 /* HUD.swift in Sources */,
 				067A4B122068CE9000CCD62F /* Player.swift in Sources */,
@@ -218,6 +225,7 @@
 				06476FC320650AD100326669 /* AppDelegate.swift in Sources */,
 				067A4B162068D15B00CCD62F /* Team.swift in Sources */,
 				06F9331620651F0700EADD3B /* Angles.swift in Sources */,
+				067A4B1A206903A500CCD62F /* BillboardUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

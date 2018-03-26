@@ -117,35 +117,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                                above playerNode:SCNNode) {
         guard let fieldNode = fieldNode else { return }
         
-        let text = player.name + "\n" + team.name
-        
-        // create texture for billboard node (using code from tour de france hack)
-        // create a custom material with text on it..
-        // https://stackoverflow.com/questions/28387116/write-text-on-sphere-surface-scenekit
-        let layer = CALayer()
-        layer.frame = CGRect(x: 0, y: 0, width: 250, height: 100)
-        layer.backgroundColor = UIColor.orange.withAlphaComponent(0.8).cgColor
-        
-        let textLayer = CATextLayer()
-        textLayer.frame = layer.bounds
-        textLayer.fontSize = 20
-        textLayer.string = text
-        textLayer.alignmentMode = kCAAlignmentCenter
-        textLayer.foregroundColor = UIColor.white.cgColor
-        textLayer.display()
-        layer.addSublayer(textLayer)
-        
         // create billboard node if doesnt exist already
         if billboardNode == nil {
-            let planeGeometry = SCNPlane(width: 0.25,
-                                         height: 0.1)
+            let planeGeometry = SCNPlane(width: BillboardUtil.nodeSize.width,
+                                         height: BillboardUtil.nodeSize.height)
             planeGeometry.firstMaterial?.locksAmbientWithDiffuse = true
             billboardNode = SCNNode(geometry: planeGeometry)
             billboardNode!.constraints = [SCNBillboardConstraint()]
             fieldNode.addChildNode(billboardNode!)
         }
         
-        billboardNode?.geometry?.firstMaterial?.diffuse.contents = layer
+        billboardNode?.geometry?.firstMaterial?.diffuse.contents = BillboardUtil.billboardMaterial(forPlayer: player,
+                                                                                                   inTeam: team)
         billboardNode!.position = playerNode.position
         billboardNode!.position.y += Float(LumberJack.height * LumberJack.scale)
     }
