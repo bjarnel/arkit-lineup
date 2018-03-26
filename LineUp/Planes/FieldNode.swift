@@ -11,9 +11,16 @@ import SceneKit
 import SpriteKit
 
 final class FieldNode{
-    static let size = CGSize(width: 1463.0, height: 1024.0)
+    static let textureSize = CGSize(width: 1463.0,     // length of field texture
+                                    height: 1024.0)    // width of field texture
+    static let textureInset = CGSize(width: 98.0,    //padding in texture behind goals
+                                     height: 93.0)   // padding in texture on the sides of the field
     static let lengthOfField = 100.0    // meters scale
     static let scale = 0.01 // == 1 meter = 100 meter
+    static let nodeSize = CGSize(width: lengthOfField * scale * Double((textureSize.width - textureInset.width * 2.0) / textureSize.width),
+                                 height: ((Double(textureSize.height - textureInset.height * 2.0) * lengthOfField) / Double(textureSize.width - textureInset.width * 2.0)) * scale)
+    static let nodeSizeIncludingPadding = CGSize(width: lengthOfField * scale,
+                                                 height: ((Double(textureSize.height) * lengthOfField) / Double(textureSize.width)) * scale)
     
     class func material() -> SCNMaterial {
         let m = SCNMaterial()
@@ -23,11 +30,8 @@ final class FieldNode{
     }
     
     class func node() -> SCNNode {
-        let width = lengthOfField * scale
-        let height = ((Double(size.height) * lengthOfField) / Double(size.width)) * scale
-        
-        let plane = SCNPlane(width: CGFloat(width),
-                             height: CGFloat(height))
+        let plane = SCNPlane(width: nodeSizeIncludingPadding.width,
+                             height: nodeSizeIncludingPadding.height)
         plane.firstMaterial = material()
         let innerNode = SCNNode(geometry: plane)
         innerNode.eulerAngles = SCNVector3(-90.0.degreesToRadians, 0, 0)

@@ -14,6 +14,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     var fieldNode:SCNNode? = nil
+    var nodeToPlayer = [String : (team:Team,
+                                  index:Int)]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,11 +62,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 anchor)
     }
     
-    @objc func didTap(_ sender:UITapGestureRecognizer) {
-        let location = sender.location(in: sceneView)
-        
+    private func initLineUp(location:CGPoint) {
         guard fieldNode == nil,
-              let planeData = anyPlaneFrom(location: location) else { return }
+            let planeData = anyPlaneFrom(location: location) else { return }
         
         let node = FieldNode.node()
         node.position = planeData.1
@@ -72,8 +72,65 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         sceneView.scene.rootNode.addChildNode(node)
         
-        let jumperJackNode = LumberJack.node()
-        node.addChildNode(jumperJackNode)
+        render(team:Test.denmark)
+        render(team:Test.germany, side:1)
+    }
+    
+    private func tap(location:CGPoint) {
+        
+    }
+    
+    @objc func didTap(_ sender:UITapGestureRecognizer) {
+        let location = sender.location(in: sceneView)
+        
+        if fieldNode == nil {
+            initLineUp(location: location)
+        } else {
+            tap(location: location)
+        }
+    }
+    
+    private func render(team:Team, side:Int = 0) {
+        guard let fieldNode = fieldNode else { return }
+        
+        // length of half of the field
+        let halfLengthOfField = Double(FieldNode.nodeSize.width) * 0.5
+        // width of field
+        let widthOfField = Double(FieldNode.nodeSize.height)
+        // offset between each "line" of players
+        let positionOffset = halfLengthOfField / Double(Position.all().count)
+        
+        for (index, position) in Position.all().enumerated() {
+            var x = Double(index) * positionOffset
+            if side == 0 {
+                x -= halfLengthOfField
+            } else {
+                x = halfLengthOfField - x
+            }
+            
+            let players = team.players.filter { $0.position == position }
+            let sideOffset = widthOfField / Double(players.count + 1)
+            
+            // render players..
+            for (pIndex, player) in players.enumerated() {
+                let y = sideOffset + sideOffset * Double(pIndex) - (widthOfField * 0.5)
+                
+                let jumperJackNode = LumberJack.node()
+                jumperJackNode.position.x = Float(x)
+                jumperJackNode.position.z = Float(y)
+                
+                jumperJackNode.eulerAngles = SCNVector3(0, side == 0 ? 90.0.degreesToRadians : -90.0.degreesToRadians, 0)
+                
+                let playerNodeId = UUID().uuidString
+                jumperJackNode.name = playerNodeId
+                nodeToPlayer[playerNodeId] = (team: team,
+                                              index: pIndex)
+                
+                //TODO: colorize model!
+                
+                fieldNode.addChildNode(jumperJackNode)
+            }
+        }
     }
 
     // MARK: - ARSCNViewDelegate

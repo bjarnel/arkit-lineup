@@ -15,6 +15,10 @@
 		06476FD6206516FB00326669 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06476FD5206516FB00326669 /* HUD.swift */; };
 		06476FD82065174200326669 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 06476FD72065174200326669 /* art.scnassets */; };
 		06748870206517FA007D1CDC /* FieldNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0674886F206517FA007D1CDC /* FieldNode.swift */; };
+		067A4B102068CE3A00CCD62F /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067A4B0F2068CE3A00CCD62F /* Position.swift */; };
+		067A4B122068CE9000CCD62F /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067A4B112068CE9000CCD62F /* Player.swift */; };
+		067A4B142068D12200CCD62F /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067A4B132068D12200CCD62F /* Test.swift */; };
+		067A4B162068D15B00CCD62F /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067A4B152068D15B00CCD62F /* Team.swift */; };
 		06F9331620651F0700EADD3B /* Angles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F9331520651F0700EADD3B /* Angles.swift */; };
 		06F9331D2065243500EADD3B /* LumberJack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F9331C2065243500EADD3B /* LumberJack.swift */; };
 /* End PBXBuildFile section */
@@ -30,6 +34,10 @@
 		06476FD5206516FB00326669 /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		06476FD72065174200326669 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		0674886F206517FA007D1CDC /* FieldNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldNode.swift; sourceTree = "<group>"; };
+		067A4B0F2068CE3A00CCD62F /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		067A4B112068CE9000CCD62F /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		067A4B132068D12200CCD62F /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		067A4B152068D15B00CCD62F /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		06F9331520651F0700EADD3B /* Angles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Angles.swift; sourceTree = "<group>"; };
 		06F9331720651F8800EADD3B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		06F9331920651FA800EADD3B /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -69,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				06F9331B2065236200EADD3B /* Models */,
+				067A4B0E2068CE2B00CCD62F /* Model */,
 				06F9331420651EFB00EADD3B /* Extensions */,
 				0674886E206517DD007D1CDC /* Planes */,
 				06476FD4206516EF00326669 /* Flat */,
@@ -97,6 +106,17 @@
 				0674886F206517FA007D1CDC /* FieldNode.swift */,
 			);
 			path = Planes;
+			sourceTree = "<group>";
+		};
+		067A4B0E2068CE2B00CCD62F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				067A4B0F2068CE3A00CCD62F /* Position.swift */,
+				067A4B112068CE9000CCD62F /* Player.swift */,
+				067A4B152068D15B00CCD62F /* Team.swift */,
+				067A4B132068D12200CCD62F /* Test.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		06F9331420651EFB00EADD3B /* Extensions */ = {
@@ -188,11 +208,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				067A4B102068CE3A00CCD62F /* Position.swift in Sources */,
 				06748870206517FA007D1CDC /* FieldNode.swift in Sources */,
+				067A4B142068D12200CCD62F /* Test.swift in Sources */,
 				06F9331D2065243500EADD3B /* LumberJack.swift in Sources */,
 				06476FD6206516FB00326669 /* HUD.swift in Sources */,
+				067A4B122068CE9000CCD62F /* Player.swift in Sources */,
 				06476FC520650AD100326669 /* ViewController.swift in Sources */,
 				06476FC320650AD100326669 /* AppDelegate.swift in Sources */,
+				067A4B162068D15B00CCD62F /* Team.swift in Sources */,
 				06F9331620651F0700EADD3B /* Angles.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
